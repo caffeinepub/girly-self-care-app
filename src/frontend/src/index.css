@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.875rem;
+        /* Pastel pink background */
+        --background: 0.97 0.05 340;
+        --foreground: 0.25 0.02 340;
+        /* White cards */
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 340;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 340;
+        /* Pink primary button */
+        --primary: 0.65 0.18 350;
+        --primary-foreground: 1 0 0;
+        --secondary: 0.95 0.03 340;
+        --secondary-foreground: 0.25 0.02 340;
+        --muted: 0.95 0.03 340;
+        --muted-foreground: 0.5 0.02 340;
+        --accent: 0.95 0.03 340;
+        --accent-foreground: 0.25 0.02 340;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 1 0 0;
+        --border: 0.9 0.02 340;
+        --input: 0.9 0.02 340;
+        --ring: 0.65 0.18 350;
+        /* Custom colors for app elements */
+        --todo-item: 0.93 0.08 340;
+        --game-area: 0.95 0.06 280;
+        --bubble: 0.75 0.15 340;
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+        --sidebar: 1 0 0;
+        --sidebar-foreground: 0.25 0.02 340;
+        --sidebar-primary: 0.65 0.18 350;
+        --sidebar-primary-foreground: 1 0 0;
+        --sidebar-accent: 0.95 0.03 340;
+        --sidebar-accent-foreground: 0.25 0.02 340;
+        --sidebar-border: 0.9 0.02 340;
+        --sidebar-ring: 0.65 0.18 350;
+    }
+
+    .dark {
+        /* Dark purple-ish background */
+        --background: 0.15 0.03 280;
+        --foreground: 0.95 0.02 280;
+        /* Darker cards */
+        --card: 0.2 0.04 280;
+        --card-foreground: 0.95 0.02 280;
+        --popover: 0.22 0.04 280;
+        --popover-foreground: 0.95 0.02 280;
+        /* Purple primary button */
+        --primary: 0.7 0.15 300;
+        --primary-foreground: 0.15 0.03 280;
+        --secondary: 0.25 0.04 280;
+        --secondary-foreground: 0.95 0.02 280;
+        --muted: 0.25 0.04 280;
+        --muted-foreground: 0.65 0.02 280;
+        --accent: 0.3 0.05 280;
+        --accent-foreground: 0.95 0.02 280;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.15 0.03 280;
+        --border: 0.3 0.04 280;
+        --input: 0.3 0.04 280;
+        --ring: 0.7 0.15 300;
+        /* Custom colors for dark mode */
+        --todo-item: 0.28 0.06 300;
+        --game-area: 0.25 0.06 280;
+        --bubble: 0.6 0.12 300;
+        --chart-1: 0.488 0.243 264.376;
+        --chart-2: 0.696 0.17 162.48;
+        --chart-3: 0.769 0.188 70.08;
+        --chart-4: 0.627 0.265 303.9;
+        --chart-5: 0.645 0.246 16.439;
+        --sidebar: 0.2 0.04 280;
+        --sidebar-foreground: 0.95 0.02 280;
+        --sidebar-primary: 0.7 0.15 300;
+        --sidebar-primary-foreground: 0.95 0.02 280;
+        --sidebar-accent: 0.25 0.04 280;
+        --sidebar-accent-foreground: 0.95 0.02 280;
+        --sidebar-border: 0.3 0.04 280;
+        --sidebar-ring: 0.7 0.15 300;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    }
+}
+
+@layer utilities {
+    .bg-todo-item {
+        background: oklch(var(--todo-item));
+    }
+    .bg-game-area {
+        background: oklch(var(--game-area));
+    }
+    .bg-bubble {
+        background: oklch(var(--bubble));
+    }
+}

@@ -1,0 +1,114 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Hello Girlies App flow: multi-screen navigation + ambient background music",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "summary": "Implement the Opening → Menu → Feature screens navigation flow with dedicated feature screens and Back-to-Menu actions.",
+      "acceptanceCriteria": [
+        "On first load, the Opening screen is shown and the rest of the screens are not visible.",
+        "Clicking “Next” from the Opening screen shows the Menu screen.",
+        "Each Menu button navigates to the corresponding feature screen (To-Do List, Self-Care Reminders, Notes, Relax Mode).",
+        "Each feature screen includes a visible “Back” control that returns to the Menu screen.",
+        "All user-facing text introduced/changed for this navigation is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OpeningScreen.tsx",
+          "operation": "create",
+          "description": "Create an Opening screen view (greeting + “Next” action) that can be conditionally rendered by the app navigator. Use shadcn-ui components (e.g., Button/Card/typography layout) to keep styling consistent. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/MenuScreen.tsx",
+          "operation": "create",
+          "description": "Create a Menu screen view containing the four navigation buttons to: To-Do List, Self Reminder, Notes, Relax Yourself, and a prompt line above them. Use shadcn-ui Button for the menu actions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/FeatureScreenShell.tsx",
+          "operation": "create",
+          "description": "Create a small reusable shell/layout for feature screens that provides a consistent header area and a visible “Back” control that returns to Menu; it should accept a title and children content. Use shadcn-ui Button for Back and optionally Card for layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Replace the current single-page card grid with an in-app navigation state machine that conditionally renders: OpeningScreen, MenuScreen, and dedicated feature screens (each wrapped in FeatureScreenShell) for TodoCard, RemindersCard, NotesCard, and BubbleGameCard. Ensure initial state shows Opening only, and that all menu/back actions update the active view accordingly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add ambient background music with play/pause control that handles autoplay restrictions and persists preference locally.",
+      "acceptanceCriteria": [
+        "The app uses this exact music URL: https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3",
+        "A visible control exists to start/stop the music (and if implemented, mute/unmute).",
+        "The user’s chosen music state is remembered across page reloads using localStorage (or an equivalent client-side mechanism).",
+        "If the browser blocks autoplay, the app does not crash and the user can start playback via the control."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAmbientMusic.ts",
+          "operation": "create",
+          "description": "Add a React hook that manages an HTMLAudioElement for looping ambient playback from https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3, exposes play/pause (and optional mute/unmute), gracefully handles play() rejections due to autoplay restrictions, and persists the user’s preference in localStorage."
+        },
+        {
+          "path": "frontend/src/components/MusicControl.tsx",
+          "operation": "create",
+          "description": "Create a visible music control UI (play/pause and optionally mute/unmute) powered by useAmbientMusic. Use shadcn-ui Button (and optionally a small Card or container styling) for consistent UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire MusicControl into the app chrome so it remains visible across Opening/Menu/Feature screens, ensuring the control is the user gesture that can start playback if autoplay is blocked."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Update app copy to match the provided HTML wording and structure (English only) across all screens and key placeholders.",
+      "acceptanceCriteria": [
+        "The Opening screen shows the greeting headline and supporting sentence in English (matching the provided HTML wording closely).",
+        "The Menu screen shows the prompt text and four feature buttons with the same labels as the provided HTML (in English).",
+        "The To-Do and Notes placeholders match the provided HTML wording (in English).",
+        "Relax Mode displays a short instruction line equivalent to “Tap bubbles”."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the document title to “Hello Girlies App” to match the provided HTML."
+        },
+        {
+          "path": "frontend/src/pages/OpeningScreen.tsx",
+          "operation": "modify",
+          "description": "Align Opening screen copy to match the provided HTML wording: headline “🎀 Hi Girlies 🎀” and supporting sentence “I have solution of all your problems 💕” (English)."
+        },
+        {
+          "path": "frontend/src/pages/MenuScreen.tsx",
+          "operation": "modify",
+          "description": "Align Menu screen copy/structure to match the provided HTML: prompt “What do you want today? 💖” and buttons labeled exactly: “📝 To-Do List”, “⏰ Self Reminder”, “📖 Notes”, “🎮 Relax Yourself” (English)."
+        },
+        {
+          "path": "frontend/src/components/sections/TodoCard.tsx",
+          "operation": "modify",
+          "description": "Update the To-Do input placeholder text to match the provided HTML wording: “Add cute task…” (English). Use existing shadcn-ui Input as currently implemented. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/sections/NotesCard.tsx",
+          "operation": "modify",
+          "description": "Update the Notes textarea placeholder text to match the provided HTML wording: “Write your feelings…” (English). Use existing shadcn-ui Textarea as currently implemented. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/sections/BubbleGameCard.tsx",
+          "operation": "modify",
+          "description": "Align Relax Mode copy with the provided HTML: change the feature title to “🎮 Relax Mode” and ensure the instruction line is equivalent to “Tap bubbles 🌸” (English). Use existing shadcn-ui Card components as currently implemented. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/sections/RemindersCard.tsx",
+          "operation": "modify",
+          "description": "Update the reminders feature title copy to match the provided HTML button label: “⏰ Self Reminder” (English). Use existing shadcn-ui Card components as currently implemented. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

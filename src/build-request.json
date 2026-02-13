@@ -1,0 +1,88 @@
+{
+  "kind": "build_request",
+  "title": "Match provided “Hello Girlies App” flow (multi-page navigation + background music)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "text": "Update the React app UI to follow the provided HTML app flow with in-app navigation between these views: (1) Opening screen with a greeting and a “Next” button, (2) Menu screen with buttons to open To-Do List, Self-Care Reminders, Notes, and Relax Mode, and (3) One dedicated screen per feature with a clear “Back” action returning to the Menu.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "user-html-1"
+        ],
+        "quotes": [
+          "<!-- OPENING PAGE -->\n<div class=\"page active\" id=\"page1\">",
+          "<!-- MENU PAGE -->\n<div class=\"page\" id=\"page2\">",
+          "<button onclick=\"go('todo')\">📝 To-Do List</button>",
+          "<button onclick=\"go('reminder')\">⏰ Self Reminder</button>",
+          "<button onclick=\"go('notes')\">📖 Notes</button>",
+          "<button onclick=\"go('relax')\">🎮 Relax Yourself</button>"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On first load, the Opening screen is shown and the rest of the screens are not visible.",
+        "Clicking “Next” from the Opening screen shows the Menu screen.",
+        "Each Menu button navigates to the corresponding feature screen (To-Do List, Self-Care Reminders, Notes, Relax Mode).",
+        "Each feature screen includes a visible “Back” control that returns to the Menu screen.",
+        "All user-facing text introduced/changed for this navigation is in English."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add background ambient music to the app using the provided audio URL, with a user control to play/pause (and optionally mute/unmute) that works with modern browser autoplay restrictions and persists the user’s preference locally.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "user-html-1"
+        ],
+        "quotes": [
+          "<!-- MUSIC -->\n<audio id=\"music\" autoplay loop>\n  <source src=\"https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3\">"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app uses this exact music URL: https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3",
+        "A visible control exists to start/stop the music (and if implemented, mute/unmute).",
+        "The user’s chosen music state is remembered across page reloads using localStorage (or an equivalent client-side mechanism).",
+        "If the browser blocks autoplay, the app does not crash and the user can start playback via the control."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Align the app’s copy (headings, button labels, placeholders, and short helper text) to match the provided HTML app’s wording and structure while keeping all user-facing text in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "user-html-1"
+        ],
+        "quotes": [
+          "<title>Hello Girlies App</title>",
+          "<h1>🎀 Hi Girlies 🎀</h1>",
+          "<p>I have solution of all your problems 💕</p>",
+          "<h2>What do you want today? 💖</h2>",
+          "<input id=\"todoInput\" placeholder=\"Add cute task…\">",
+          "<textarea id=\"note\" rows=\"5\" placeholder=\"Write your feelings…\"></textarea>",
+          "<h2>🎮 Relax Mode</h2>\n  <p>Tap bubbles 🌸</p>"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Opening screen shows the greeting headline and supporting sentence in English (matching the provided HTML wording closely).",
+        "The Menu screen shows the prompt text and four feature buttons with the same labels as the provided HTML (in English).",
+        "The To-Do and Notes placeholders match the provided HTML wording (in English).",
+        "Relax Mode displays a short instruction line equivalent to “Tap bubbles”."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend files listed as immutable in SYSTEM_CONTEXT must not be modified directly: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, and anything under frontend/src/components/ui.",
+    "Do not introduce non-supported tech (no external databases, no third-party auth beyond Internet Identity, no WebSockets)."
+  ],
+  "nonGoals": [
+    "Packaging or publishing the app to the Google Play Store (APK/AAB creation, TWA wrapping, Play Console submission) is out of scope for this build request.",
+    "Adding new feature areas beyond the provided Opening/Menu/To-Do/Reminders/Notes/Relax screens is out of scope."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

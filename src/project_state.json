@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build a cute/girly self-care web app with dark mode, to-do list, notes saved locally, self-care reminder notifications, daily quote, and a relaxing bubble pop mini-game.",
+  "architectural_notes": [
+    "Use localStorage to persist the notes textarea content.",
+    "Use browser Notification API (request permission on load; send notifications when permitted).",
+    "Dark mode implemented by toggling a .dark class and using CSS variables for theme colors.",
+    "Bubble game uses timed DOM element creation/removal (setInterval + setTimeout) and plays an audio pop on click."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-girly-self-care-app-ui-with-a-card-based-layout-that-includes-sections-for-dark-mode-toggle-to-do-list-notes-self-care-reminders-daily-quote-and-a-bubble-pop-mini-game",
+      "title": "Create a single-page \"Girly Self Care\" app UI with a card-based layout that includes sections for: Dark mode toggle, To-Do List, Notes, Self-Care Reminders, Daily Quote, and a Bubble Pop mini-game.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-cute-coherent-visual-theme-inspired-by-the-provided-design-pastel-pink-background-white-cards-rounded-corners-soft-shadows-and-a-primary-button-color-matching-the-theme-use-tailwind-css-for-styling-and-keep-typography-consistent-across-the-page",
+      "title": "Implement a cute, coherent visual theme inspired by the provided design: pastel pink background, white cards, rounded corners, soft shadows, and a primary button color matching the theme. Use Tailwind CSS for styling and keep typography consistent across the page.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-dark-mode-toggle-that-switches-between-light-and-dark-themes-using-css-variables-or-tailwind-theme-equivalents-and-a-single-class-toggle-on-the-page-root-e-g-body-or-app-wrapper",
+      "title": "Add a dark mode toggle that switches between light and dark themes using CSS variables (or Tailwind theme equivalents) and a single class toggle on the page root (e.g., body or app wrapper).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-to-do-list-allow-adding-tasks-from-an-input-display-tasks-in-a-list-allow-marking-a-task-complete-by-clicking-tapping-it-rendered-with-strikethrough-styling",
+      "title": "Implement the To-Do List: allow adding tasks from an input; display tasks in a list; allow marking a task complete by clicking/tapping it (rendered with strikethrough styling).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-notes-section-with-a-multiline-text-area-and-a-save-action-that-persists-the-note-to-localstorage-and-shows-a-confirmation-message-in-english-e-g-saved-on-page-load-prefill-the-note-from-localstorage-if-present",
+      "title": "Implement the Notes section with a multiline text area and a Save action that persists the note to localStorage and shows a confirmation message in English (e.g., \"Saved\"). On page load, prefill the note from localStorage if present.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-self-care-reminders-using-the-browser-notification-api-request-permission-when-appropriate-provide-preset-reminder-buttons-water-hair-exercise-self-care-and-trigger-a-notification-with-the-provided-messages-when-permission-is-granted",
+      "title": "Implement Self-Care Reminders using the browser Notification API: request permission when appropriate, provide preset reminder buttons (Water, Hair, Exercise, Self-Care), and trigger a notification with the provided messages when permission is granted.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-daily-quote-section-that-randomly-selects-and-shows-one-quote-from-the-provided-preset-list-each-time-the-page-loads",
+      "title": "Display a Daily Quote section that randomly selects and shows one quote from the provided preset list each time the page loads.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-relaxing-bubble-pop-mini-game-area-spawn-bubble-elements-periodically-within-a-fixed-height-playfield-clicking-tapping-a-bubble-removes-it-and-plays-a-pop-sound-from-the-provided-audio-url-auto-remove-bubbles-after-a-short-timeout",
+      "title": "Add a relaxing Bubble Pop mini-game area: spawn bubble elements periodically within a fixed-height playfield; clicking/tapping a bubble removes it and plays a pop sound from the provided audio URL; auto-remove bubbles after a short timeout.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-react-app-ui-to-follow-the-provided-html-app-flow-with-in-app-navigation-between-these-views-1-opening-screen-with-a-greeting-and-a-next-button-2-menu-screen-with-buttons-to-open-to-do-list-self-care-reminders-notes-and-relax-mode-and-3-one-dedicated-screen-per-feature-with-a-clear-back-action-returning-to-the-menu",
+      "title": "Update the React app UI to follow the provided HTML app flow with in-app navigation between these views: (1) Opening screen with a greeting and a “Next” button, (2) Menu screen with buttons to open To-Do List, Self-Care Reminders, Notes, and Relax Mode, and (3) One dedicated screen per feature with a clear “Back” action returning to the Menu.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-background-ambient-music-to-the-app-using-the-provided-audio-url-with-a-user-control-to-play-pause-and-optionally-mute-unmute-that-works-with-modern-browser-autoplay-restrictions-and-persists-the-user-s-preference-locally",
+      "title": "Add background ambient music to the app using the provided audio URL, with a user control to play/pause (and optionally mute/unmute) that works with modern browser autoplay restrictions and persists the user’s preference locally.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-align-the-app-s-copy-headings-button-labels-placeholders-and-short-helper-text-to-match-the-provided-html-app-s-wording-and-structure-while-keeping-all-user-facing-text-in-english",
+      "title": "Align the app’s copy (headings, button labels, placeholders, and short helper text) to match the provided HTML app’s wording and structure while keeping all user-facing text in English.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create \"Girly Self Care App\" single-page UI with cute card-based layout and theme styling",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add dark mode toggle using CSS variables and body class switching",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement to-do list: add tasks and tap to mark complete (strikethrough)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement notes section with save and persist via localStorage",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement self-care reminders via browser Notification API with preset buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Display a daily quote chosen randomly from a small preset list",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add relaxing bubble pop mini-game with bubbles spawning and pop sound",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Support publishing to Google Play Store by packaging the web app as an Android app (e.g., PWA/TWA wrapper) and providing Play Console upload steps",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Girly Self Care App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

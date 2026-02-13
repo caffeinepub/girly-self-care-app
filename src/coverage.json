@@ -1,0 +1,94 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-13T12:34:42.891Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Add background ambient music to the app using the provided audio URL, with a user control to play/pause (and optionally mute/unmute) that works with modern browser autoplay restrictions and persists the user’s preference locally.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useAmbientMusic.ts",
+          "frontend/src/components/MusicControl.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useAmbientMusic.ts",
+          "frontend/src/components/MusicControl.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Align the app’s copy (headings, button labels, placeholders, and short helper text) to match the provided HTML app’s wording and structure while keeping all user-facing text in English.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/src/pages/OpeningScreen.tsx",
+          "frontend/src/pages/MenuScreen.tsx",
+          "frontend/src/components/sections/TodoCard.tsx",
+          "frontend/src/components/sections/NotesCard.tsx",
+          "frontend/src/components/sections/BubbleGameCard.tsx",
+          "frontend/src/components/sections/RemindersCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/index.html",
+          "frontend/src/pages/OpeningScreen.tsx",
+          "frontend/src/pages/MenuScreen.tsx",
+          "frontend/src/components/sections/TodoCard.tsx",
+          "frontend/src/components/sections/NotesCard.tsx",
+          "frontend/src/components/sections/BubbleGameCard.tsx",
+          "frontend/src/components/sections/RemindersCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Update the React app UI to follow the provided HTML app flow with in-app navigation between these views: (1) Opening screen with a greeting and a “Next” button, (2) Menu screen with buttons to open To-Do List, Self-Care Reminders, Notes, and Relax Mode, and (3) One dedicated screen per feature with a clear “Back” action returning to the Menu.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OpeningScreen.tsx",
+          "frontend/src/pages/MenuScreen.tsx",
+          "frontend/src/pages/FeatureScreenShell.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OpeningScreen.tsx",
+          "frontend/src/pages/MenuScreen.tsx",
+          "frontend/src/pages/FeatureScreenShell.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/MusicControl.tsx",
+    "frontend/src/components/sections/BubbleGameCard.tsx",
+    "frontend/src/components/sections/DailyQuoteCard.tsx",
+    "frontend/src/components/sections/DarkModeToggle.tsx",
+    "frontend/src/components/sections/NotesCard.tsx",
+    "frontend/src/components/sections/RemindersCard.tsx",
+    "frontend/src/components/sections/TodoCard.tsx",
+    "frontend/src/hooks/useAmbientMusic.ts",
+    "frontend/src/pages/FeatureScreenShell.tsx",
+    "frontend/src/pages/MenuScreen.tsx",
+    "frontend/src/pages/OpeningScreen.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
