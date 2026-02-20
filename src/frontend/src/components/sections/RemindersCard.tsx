@@ -48,24 +48,24 @@ export default function RemindersCard() {
   ];
 
   return (
-    <Card className="shadow-lg">
+    <Card className="shadow-lg bg-white dark:bg-gray-800">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-primary">
+        <CardTitle className="flex items-center gap-2 text-pink-600 dark:text-pink-400">
           ⏰ Self-Care Reminders
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {notificationStatus === 'unsupported' && (
-          <Alert>
-            <AlertDescription>
+          <Alert className="bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
+            <AlertDescription className="text-gray-700 dark:text-gray-300">
               Notifications are not supported in your browser. Reminders will use alerts instead.
             </AlertDescription>
           </Alert>
         )}
 
         {notificationStatus === 'denied' && (
-          <Alert>
-            <AlertDescription>
+          <Alert className="bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
+            <AlertDescription className="text-gray-700 dark:text-gray-300">
               Notifications are blocked. Reminders will use alerts instead.
             </AlertDescription>
           </Alert>
@@ -77,7 +77,7 @@ export default function RemindersCard() {
               key={reminder.label}
               onClick={() => notify(reminder.message)}
               variant="outline"
-              className="h-auto py-4 flex flex-col gap-2 hover:bg-accent"
+              className="h-auto py-4 flex flex-col gap-2 hover:bg-pink-100 dark:hover:bg-pink-900/30 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300"
             >
               <reminder.icon className={`h-6 w-6 ${reminder.color}`} />
               <span className="text-sm">{reminder.label}</span>

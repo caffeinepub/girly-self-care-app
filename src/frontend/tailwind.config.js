@@ -16,7 +16,7 @@ export default {
         },
         extend: {
             fontFamily: {
-                sans: ['Poppins', 'system-ui', 'sans-serif'],
+                sans: ['Comic Sans MS', 'cursive', 'system-ui', 'sans-serif'],
             },
             colors: {
                 border: 'oklch(var(--border))',

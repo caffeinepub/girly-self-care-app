@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Build a cute/girly self-care web app with dark mode, to-do list, notes saved locally, self-care reminder notifications, daily quote, and a relaxing bubble pop mini-game.",
   "architectural_notes": [
     "Use localStorage to persist the notes textarea content.",
@@ -96,6 +96,46 @@
       "title": "Align the app’s copy (headings, button labels, placeholders, and short helper text) to match the provided HTML app’s wording and structure while keeping all user-facing text in English.",
       "reqIds": [
         "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-parse-and-implement-the-complete-html-app-structure-from-the-user-provided-source-code-preserving-all-sections-styling-patterns-and-interaction-behaviors-defined-in-the-original-markup",
+      "title": "Parse and implement the complete HTML app structure from the user-provided source code, preserving all sections, styling patterns, and interaction behaviors defined in the original markup",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-comic-sans-ms-font-family-as-specified-in-the-html-source-to-maintain-the-cute-friendly-aesthetic-throughout-the-app",
+      "title": "Apply the Comic Sans MS font family as specified in the HTML source to maintain the cute, friendly aesthetic throughout the app",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-gradient-background-using-the-exact-colors-from-the-html-source-linear-gradient-from-ffc0cb-pink-to-ff99cc-hot-pink-from-top-left-to-bottom-right",
+      "title": "Implement the gradient background using the exact colors from the HTML source: linear gradient from #ffc0cb (pink) to #ff99cc (hot pink) from top-left to bottom-right",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-section-display-logic-from-the-html-source-where-sections-are-hidden-by-default-display-none-and-shown-individually-based-on-navigation-state",
+      "title": "Implement the section display logic from the HTML source where sections are hidden by default (display:none) and shown individually based on navigation state",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-extract-and-implement-all-interactive-features-content-and-user-flows-defined-in-the-complete-html-source-code-that-was-truncated-in-the-user-message",
+      "title": "Extract and implement all interactive features, content, and user flows defined in the complete HTML source code that was truncated in the user message",
+      "reqIds": [
+        "REQ-16"
       ],
       "version": 1
     }

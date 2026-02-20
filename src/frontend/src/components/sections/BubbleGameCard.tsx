@@ -54,23 +54,23 @@ export default function BubbleGameCard() {
   };
 
   return (
-    <Card className="shadow-lg">
+    <Card className="shadow-lg bg-white dark:bg-gray-800">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-primary">
+        <CardTitle className="flex items-center gap-2 text-pink-600 dark:text-pink-400">
           🎮 Relax Mode
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-muted-foreground mb-4">Tap bubbles 🌸</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">Tap bubbles 🌸</p>
         <div
           ref={gameAreaRef}
-          className="relative h-[200px] md:h-[250px] bg-game-area rounded-lg overflow-hidden"
+          className="relative h-[200px] md:h-[250px] bg-pink-100 dark:bg-pink-900/30 rounded-lg overflow-hidden"
         >
           {bubbles.map((bubble) => (
             <div
               key={bubble.id}
               onClick={() => popBubble(bubble.id)}
-              className="absolute w-10 h-10 bg-bubble rounded-full cursor-pointer transition-transform hover:scale-110 animate-in fade-in zoom-in duration-300"
+              className="absolute w-10 h-10 bg-pink-400 dark:bg-pink-500 rounded-full cursor-pointer transition-transform hover:scale-110 animate-in fade-in zoom-in duration-300"
               style={{
                 left: `${bubble.x}px`,
                 top: `${bubble.y}px`,

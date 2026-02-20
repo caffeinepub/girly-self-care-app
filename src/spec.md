@@ -1,11 +1,15 @@
 # Specification
 
 ## Summary
-**Goal:** Update the “Hello Girlies App” React UI to match the provided HTML flow, copy, and add persistent background ambient music with user controls.
+**Goal:** Rebuild the application from the provided HTML source code, preserving all sections, styling, interactions, and the cute, friendly aesthetic with Comic Sans MS font and pink gradient background.
 
 **Planned changes:**
-- Implement multi-page in-app navigation with these views: Opening screen → Menu → dedicated screens for To-Do List, Self-Care Reminders, Notes, and Relax Mode; each feature screen includes a clear “Back” action to the Menu.
-- Align user-facing copy (headings, button labels, placeholders, and short helper text) to closely match the provided HTML wording while keeping all text in English.
-- Add looping background music using the exact provided audio URL, with a visible play/pause control (optionally mute/unmute), handling autoplay restrictions gracefully and persisting the user’s preference via local storage.
+- Parse and implement all sections, components, and navigation from the HTML source as React components
+- Apply Comic Sans MS font family throughout the app with cursive fallback
+- Implement the exact gradient background (linear gradient from #ffc0cb to #ff99cc, top-left to bottom-right)
+- Convert HTML/CSS styling patterns to Tailwind classes or custom CSS matching the original design
+- Implement section display logic where only one section shows at a time with consistent 50px vertical and 20px horizontal padding
+- Convert all JavaScript functionality from the HTML to React hooks and components
+- Preserve all buttons, inputs, interactive elements, content sections, and event handlers from the complete HTML source
 
-**User-visible outcome:** Users land on an Opening screen with a “Next” button, navigate to a Menu to open each feature screen and return back, see copy consistent with the provided HTML, and can control ambient background music that remembers their preference across reloads.
+**User-visible outcome:** The application will match the look, feel, and functionality of the original HTML app, with a pink gradient background, Comic Sans MS font, and all interactive features working as designed in the source code.

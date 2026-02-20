@@ -6,11 +6,12 @@ import TodoCard from './components/sections/TodoCard';
 import NotesCard from './components/sections/NotesCard';
 import RemindersCard from './components/sections/RemindersCard';
 import BubbleGameCard from './components/sections/BubbleGameCard';
+import DailyQuoteCard from './components/sections/DailyQuoteCard';
 import MusicControl from './components/MusicControl';
 import DarkModeToggle from './components/sections/DarkModeToggle';
 import { Heart } from 'lucide-react';
 
-type Screen = 'opening' | 'menu' | 'todo' | 'reminder' | 'notes' | 'relax';
+type Screen = 'opening' | 'menu' | 'todo' | 'reminder' | 'notes' | 'relax' | 'quote';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('opening');
@@ -21,17 +22,17 @@ function App() {
   }, []);
 
   const navigateToMenu = () => setCurrentScreen('menu');
-  const navigateToFeature = (screen: 'todo' | 'reminder' | 'notes' | 'relax') => setCurrentScreen(screen);
+  const navigateToFeature = (screen: 'todo' | 'reminder' | 'notes' | 'relax' | 'quote') => setCurrentScreen(screen);
 
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
+    <div className="min-h-screen transition-colors duration-300">
       {/* Fixed controls in top-right corner */}
       <div className="fixed top-4 right-4 z-50 flex gap-2">
         <MusicControl />
         <DarkModeToggle />
       </div>
 
-      {/* Screen routing */}
+      {/* Section-based navigation - only one section visible at a time */}
       {currentScreen === 'opening' && (
         <OpeningScreen onNext={navigateToMenu} />
       )}
@@ -64,17 +65,23 @@ function App() {
         </FeatureScreenShell>
       )}
 
+      {currentScreen === 'quote' && (
+        <FeatureScreenShell title="✨ Daily Quote" onBack={navigateToMenu}>
+          <DailyQuoteCard />
+        </FeatureScreenShell>
+      )}
+
       {/* Footer - visible on all screens except opening */}
       {currentScreen !== 'opening' && (
-        <footer className="fixed bottom-0 left-0 right-0 text-center text-sm text-muted-foreground py-4 bg-background/80 backdrop-blur-sm">
+        <footer className="fixed bottom-0 left-0 right-0 text-center text-sm py-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm text-gray-700 dark:text-gray-300">
           <p>
             © {new Date().getFullYear()} · Built with{' '}
-            <Heart className="inline-block w-4 h-4 text-primary fill-primary" /> using{' '}
+            <Heart className="inline-block w-4 h-4 text-pink-500 fill-pink-500" /> using{' '}
             <a
               href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:underline font-medium"
+              className="text-pink-500 hover:underline font-medium"
             >
               caffeine.ai
             </a>

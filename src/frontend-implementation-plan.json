@@ -1,112 +1,186 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Hello Girlies App flow: multi-screen navigation + ambient background music",
+  "title": "Rebuild Girly Self Care app from HTML source with complete implementation",
   "requirements": [
     {
-      "id": "REQ-9",
-      "summary": "Implement the Opening → Menu → Feature screens navigation flow with dedicated feature screens and Back-to-Menu actions.",
+      "id": "REQ-12",
+      "summary": "Parse and implement the complete HTML app structure from the user-provided source code, preserving all sections, styling patterns, and interaction behaviors",
       "acceptanceCriteria": [
-        "On first load, the Opening screen is shown and the rest of the screens are not visible.",
-        "Clicking “Next” from the Opening screen shows the Menu screen.",
-        "Each Menu button navigates to the corresponding feature screen (To-Do List, Self-Care Reminders, Notes, Relax Mode).",
-        "Each feature screen includes a visible “Back” control that returns to the Menu screen.",
-        "All user-facing text introduced/changed for this navigation is in English."
+        "All sections defined in the HTML source are implemented as React components",
+        "CSS styling from the HTML <style> block is converted to Tailwind classes or custom CSS matching the original visual design",
+        "All JavaScript functionality from the HTML source is implemented in React hooks and components",
+        "The app structure and navigation flow matches the HTML implementation"
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/pages/OpeningScreen.tsx",
-          "operation": "create",
-          "description": "Create an Opening screen view (greeting + “Next” action) that can be conditionally rendered by the app navigator. Use shadcn-ui components (e.g., Button/Card/typography layout) to keep styling consistent. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/MenuScreen.tsx",
-          "operation": "create",
-          "description": "Create a Menu screen view containing the four navigation buttons to: To-Do List, Self Reminder, Notes, Relax Yourself, and a prompt line above them. Use shadcn-ui Button for the menu actions. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/FeatureScreenShell.tsx",
-          "operation": "create",
-          "description": "Create a small reusable shell/layout for feature screens that provides a consistent header area and a visible “Back” control that returns to Menu; it should accept a title and children content. Use shadcn-ui Button for Back and optionally Card for layout. Verify the component's usage instructions before implementing."
-        },
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Replace the current single-page card grid with an in-app navigation state machine that conditionally renders: OpeningScreen, MenuScreen, and dedicated feature screens (each wrapped in FeatureScreenShell) for TodoCard, RemindersCard, NotesCard, and BubbleGameCard. Ensure initial state shows Opening only, and that all menu/back actions update the active view accordingly."
-        }
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "summary": "Add ambient background music with play/pause control that handles autoplay restrictions and persists preference locally.",
-      "acceptanceCriteria": [
-        "The app uses this exact music URL: https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3",
-        "A visible control exists to start/stop the music (and if implemented, mute/unmute).",
-        "The user’s chosen music state is remembered across page reloads using localStorage (or an equivalent client-side mechanism).",
-        "If the browser blocks autoplay, the app does not crash and the user can start playback via the control."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useAmbientMusic.ts",
-          "operation": "create",
-          "description": "Add a React hook that manages an HTMLAudioElement for looping ambient playback from https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3, exposes play/pause (and optional mute/unmute), gracefully handles play() rejections due to autoplay restrictions, and persists the user’s preference in localStorage."
-        },
-        {
-          "path": "frontend/src/components/MusicControl.tsx",
-          "operation": "create",
-          "description": "Create a visible music control UI (play/pause and optionally mute/unmute) powered by useAmbientMusic. Use shadcn-ui Button (and optionally a small Card or container styling) for consistent UI. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wire MusicControl into the app chrome so it remains visible across Opening/Menu/Feature screens, ensuring the control is the user gesture that can start playback if autoplay is blocked."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Update app copy to match the provided HTML wording and structure (English only) across all screens and key placeholders.",
-      "acceptanceCriteria": [
-        "The Opening screen shows the greeting headline and supporting sentence in English (matching the provided HTML wording closely).",
-        "The Menu screen shows the prompt text and four feature buttons with the same labels as the provided HTML (in English).",
-        "The To-Do and Notes placeholders match the provided HTML wording (in English).",
-        "Relax Mode displays a short instruction line equivalent to “Tap bubbles”."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Update the document title to “Hello Girlies App” to match the provided HTML."
+          "description": "Refactor the main App component to match the HTML source structure, implementing the section-based navigation system where only one section is visible at a time. Replace the current screen-based navigation with the HTML's section display logic. Preserve the existing MusicControl and DarkModeToggle components while integrating them into the new layout."
         },
         {
           "path": "frontend/src/pages/OpeningScreen.tsx",
           "operation": "modify",
-          "description": "Align Opening screen copy to match the provided HTML wording: headline “🎀 Hi Girlies 🎀” and supporting sentence “I have solution of all your problems 💕” (English)."
+          "description": "Update the opening screen to match the greeting and introduction content from the HTML source. Ensure the layout, text content, and navigation button match the original HTML implementation while using React components."
         },
         {
           "path": "frontend/src/pages/MenuScreen.tsx",
           "operation": "modify",
-          "description": "Align Menu screen copy/structure to match the provided HTML: prompt “What do you want today? 💖” and buttons labeled exactly: “📝 To-Do List”, “⏰ Self Reminder”, “📖 Notes”, “🎮 Relax Yourself” (English)."
+          "description": "Rebuild the menu screen to match the HTML source's navigation structure. Update button labels, layout, and styling to align with the original HTML menu section. Ensure all navigation options from the HTML are represented."
         },
         {
           "path": "frontend/src/components/sections/TodoCard.tsx",
           "operation": "modify",
-          "description": "Update the To-Do input placeholder text to match the provided HTML wording: “Add cute task…” (English). Use existing shadcn-ui Input as currently implemented. Verify the component's usage instructions before implementing."
+          "description": "Update the todo card component to match the exact styling, interaction patterns, and localStorage implementation from the HTML source. Ensure the task creation, completion toggling, and persistence logic matches the original."
         },
         {
           "path": "frontend/src/components/sections/NotesCard.tsx",
           "operation": "modify",
-          "description": "Update the Notes textarea placeholder text to match the provided HTML wording: “Write your feelings…” (English). Use existing shadcn-ui Textarea as currently implemented. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/sections/BubbleGameCard.tsx",
-          "operation": "modify",
-          "description": "Align Relax Mode copy with the provided HTML: change the feature title to “🎮 Relax Mode” and ensure the instruction line is equivalent to “Tap bubbles 🌸” (English). Use existing shadcn-ui Card components as currently implemented. Verify the component's usage instructions before implementing."
+          "description": "Update the notes card to match the HTML source implementation, ensuring textarea styling, save functionality, and localStorage persistence align with the original behavior."
         },
         {
           "path": "frontend/src/components/sections/RemindersCard.tsx",
           "operation": "modify",
-          "description": "Update the reminders feature title copy to match the provided HTML button label: “⏰ Self Reminder” (English). Use existing shadcn-ui Card components as currently implemented. Verify the component's usage instructions before implementing."
+          "description": "Update the reminders card to match the HTML source's reminder buttons, notification triggers, and interaction patterns. Ensure all reminder options from the HTML are implemented."
+        },
+        {
+          "path": "frontend/src/components/sections/BubbleGameCard.tsx",
+          "operation": "modify",
+          "description": "Update the bubble game to match the HTML source's game mechanics, bubble spawning logic, tap interactions, and scoring system. Ensure visual styling and sound effects align with the original implementation."
+        },
+        {
+          "path": "frontend/src/components/sections/DailyQuoteCard.tsx",
+          "operation": "modify",
+          "description": "Implement the daily quote functionality from the HTML source. Add the quote display logic, quote rotation mechanism, and styling to match the original HTML implementation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Apply Comic Sans MS font family throughout the app to maintain the cute, friendly aesthetic",
+      "acceptanceCriteria": [
+        "Comic Sans MS is loaded and applied as the primary font",
+        "A fallback cursive font is provided for systems without Comic Sans MS"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the CSS base layer to include Comic Sans MS as the primary font-family with cursive as fallback. Apply the font globally to the body and all text elements to match the HTML source's font specification."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme configuration to set Comic Sans MS with cursive fallback as the default font family. This ensures all Tailwind utility classes use the correct font."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Implement the exact gradient background from HTML source: linear gradient from #ffc0cb to #ff99cc, top-left to bottom-right",
+      "acceptanceCriteria": [
+        "Background gradient matches the HTML source colors exactly",
+        "Gradient direction is top-left to bottom-right",
+        "Background covers the entire viewport without horizontal scrolling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add the exact background gradient specification from the HTML source to the body element. Use the linear-gradient(to bottom right, #ffc0cb, #ff99cc) with appropriate viewport coverage settings. Ensure the gradient is applied globally and does not cause horizontal scrolling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update the root container styling to ensure the gradient background is properly displayed. Remove any conflicting background styles and ensure the app container allows the global gradient to show through."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Implement section display logic where sections are hidden by default and shown individually based on navigation state",
+      "acceptanceCriteria": [
+        "Only one section is visible at a time",
+        "Each section has consistent padding of 50px vertical and 20px horizontal",
+        "Sections have appropriate minimum height as defined in the HTML source"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement the section visibility logic from the HTML source where all sections start hidden (display:none equivalent) and only the active section is shown. Use React state to track the current section and conditionally render only the active section."
+        },
+        {
+          "path": "frontend/src/pages/FeatureScreenShell.tsx",
+          "operation": "modify",
+          "description": "Update the feature screen shell to apply the consistent padding (50px vertical, 20px horizontal) and minimum height from the HTML source. Ensure the layout wrapper matches the HTML's section styling specifications."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add utility classes or base styles for section containers that implement the padding and minimum height specifications from the HTML source. Ensure these styles can be applied consistently across all section components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Extract and implement all interactive features, content, and user flows defined in the complete HTML source code",
+      "acceptanceCriteria": [
+        "All buttons, inputs, and interactive elements from the HTML are functional",
+        "All content sections (greetings, instructions, feature areas) are rendered",
+        "Navigation between screens works as defined in the HTML",
+        "All event handlers and dynamic behaviors are preserved"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement all navigation flows and event handlers from the HTML source. Ensure all sections can be navigated to and from, and that the navigation state management matches the HTML's JavaScript implementation. Wire up all interactive elements with their corresponding handlers."
+        },
+        {
+          "path": "frontend/src/pages/OpeningScreen.tsx",
+          "operation": "modify",
+          "description": "Implement all buttons, text content, and interactive elements from the HTML source's opening section. Ensure event handlers for navigation and any dynamic content updates are functional."
+        },
+        {
+          "path": "frontend/src/pages/MenuScreen.tsx",
+          "operation": "modify",
+          "description": "Implement all navigation buttons and interactive elements from the HTML source's menu section. Ensure each button properly triggers navigation to its corresponding feature section."
+        },
+        {
+          "path": "frontend/src/components/sections/TodoCard.tsx",
+          "operation": "modify",
+          "description": "Implement all interactive elements from the HTML source's todo section, including input fields, add buttons, checkbox interactions, and delete functionality. Ensure all event handlers work as defined in the original JavaScript."
+        },
+        {
+          "path": "frontend/src/components/sections/NotesCard.tsx",
+          "operation": "modify",
+          "description": "Implement all interactive elements from the HTML source's notes section, including textarea input, save button, and any dynamic content display. Ensure event handlers match the original implementation."
+        },
+        {
+          "path": "frontend/src/components/sections/RemindersCard.tsx",
+          "operation": "modify",
+          "description": "Implement all reminder buttons and notification triggers from the HTML source. Ensure each reminder type has the correct event handler and notification behavior as defined in the original JavaScript."
+        },
+        {
+          "path": "frontend/src/components/sections/BubbleGameCard.tsx",
+          "operation": "modify",
+          "description": "Implement all interactive game elements from the HTML source, including bubble spawning, tap/click handlers, sound effects, and score tracking. Ensure the game loop and event handlers match the original implementation."
+        },
+        {
+          "path": "frontend/src/components/sections/DailyQuoteCard.tsx",
+          "operation": "modify",
+          "description": "Implement all content display and any interactive elements (refresh button, quote navigation) from the HTML source's quote section. Ensure the quote rotation and display logic matches the original."
+        },
+        {
+          "path": "frontend/src/components/MusicControl.tsx",
+          "operation": "modify",
+          "description": "Verify the music control component matches any audio controls defined in the HTML source. Update play/pause/mute functionality and UI styling to align with the original implementation if different from current version."
+        },
+        {
+          "path": "frontend/src/components/sections/DarkModeToggle.tsx",
+          "operation": "modify",
+          "description": "Verify the dark mode toggle matches any theme switching functionality in the HTML source. Update to preserve the light/dark theme system while ensuring it works with the new gradient background."
         }
       ]
     }

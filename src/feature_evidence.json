@@ -2,52 +2,12 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-react-app-ui-to-follow-the-provided-html-app-flow-with-in-app-navigation-between-these-views-1-opening-screen-with-a-greeting-and-a-next-button-2-menu-screen-with-buttons-to-open-to-do-list-self-care-reminders-notes-and-relax-mode-and-3-one-dedicated-screen-per-feature-with-a-clear-back-action-returning-to-the-menu",
-      "featureTitle": "Update the React app UI to follow the provided HTML app flow with in-app navigation between these views: (1) Opening screen with a greeting and a “Next” button, (2) Menu screen with buttons to open To-Do List, Self-Care Reminders, Notes, and Relax Mode, and (3) One dedicated screen per feature with a clear “Back” action returning to the Menu.",
+      "featureId": "feature-parse-and-implement-the-complete-html-app-structure-from-the-user-provided-source-code-preserving-all-sections-styling-patterns-and-interaction-behaviors-defined-in-the-original-markup",
+      "featureTitle": "Parse and implement the complete HTML app structure from the user-provided source code, preserving all sections, styling patterns, and interaction behaviors defined in the original markup",
       "files": [
         "frontend/src/App.tsx",
-        "frontend/src/pages/FeatureScreenShell.tsx",
-        "frontend/src/pages/MenuScreen.tsx",
-        "frontend/src/pages/OpeningScreen.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-9"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-background-ambient-music-to-the-app-using-the-provided-audio-url-with-a-user-control-to-play-pause-and-optionally-mute-unmute-that-works-with-modern-browser-autoplay-restrictions-and-persists-the-user-s-preference-locally",
-      "featureTitle": "Add background ambient music to the app using the provided audio URL, with a user control to play/pause (and optionally mute/unmute) that works with modern browser autoplay restrictions and persists the user’s preference locally.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/MusicControl.tsx",
-        "frontend/src/hooks/useAmbientMusic.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-10"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-align-the-app-s-copy-headings-button-labels-placeholders-and-short-helper-text-to-match-the-provided-html-app-s-wording-and-structure-while-keeping-all-user-facing-text-in-english",
-      "featureTitle": "Align the app’s copy (headings, button labels, placeholders, and short helper text) to match the provided HTML app’s wording and structure while keeping all user-facing text in English.",
-      "files": [
-        "frontend/index.html",
         "frontend/src/components/sections/BubbleGameCard.tsx",
+        "frontend/src/components/sections/DailyQuoteCard.tsx",
         "frontend/src/components/sections/NotesCard.tsx",
         "frontend/src/components/sections/RemindersCard.tsx",
         "frontend/src/components/sections/TodoCard.tsx",
@@ -62,7 +22,90 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-the-comic-sans-ms-font-family-as-specified-in-the-html-source-to-maintain-the-cute-friendly-aesthetic-throughout-the-app",
+      "featureTitle": "Apply the Comic Sans MS font family as specified in the HTML source to maintain the cute, friendly aesthetic throughout the app",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-gradient-background-using-the-exact-colors-from-the-html-source-linear-gradient-from-ffc0cb-pink-to-ff99cc-hot-pink-from-top-left-to-bottom-right",
+      "featureTitle": "Implement the gradient background using the exact colors from the HTML source: linear gradient from #ffc0cb (pink) to #ff99cc (hot pink) from top-left to bottom-right",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-section-display-logic-from-the-html-source-where-sections-are-hidden-by-default-display-none-and-shown-individually-based-on-navigation-state",
+      "featureTitle": "Implement the section display logic from the HTML source where sections are hidden by default (display:none) and shown individually based on navigation state",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/FeatureScreenShell.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-extract-and-implement-all-interactive-features-content-and-user-flows-defined-in-the-complete-html-source-code-that-was-truncated-in-the-user-message",
+      "featureTitle": "Extract and implement all interactive features, content, and user flows defined in the complete HTML source code that was truncated in the user message",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/sections/BubbleGameCard.tsx",
+        "frontend/src/components/sections/DailyQuoteCard.tsx",
+        "frontend/src/components/sections/NotesCard.tsx",
+        "frontend/src/components/sections/RemindersCard.tsx",
+        "frontend/src/components/sections/TodoCard.tsx",
+        "frontend/src/pages/MenuScreen.tsx",
+        "frontend/src/pages/OpeningScreen.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
       ],
       "confidence": "high"
     }

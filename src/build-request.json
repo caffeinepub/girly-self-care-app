@@ -1,85 +1,109 @@
 {
   "kind": "build_request",
-  "title": "Match provided “Hello Girlies App” flow (multi-page navigation + background music)",
+  "title": "Rebuild app from HTML source with complete implementation",
+  "projectName": "Girly Self Care",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-9",
-      "text": "Update the React app UI to follow the provided HTML app flow with in-app navigation between these views: (1) Opening screen with a greeting and a “Next” button, (2) Menu screen with buttons to open To-Do List, Self-Care Reminders, Notes, and Relax Mode, and (3) One dedicated screen per feature with a clear “Back” action returning to the Menu.",
+      "id": "REQ-12",
+      "text": "Parse and implement the complete HTML app structure from the user-provided source code, preserving all sections, styling patterns, and interaction behaviors defined in the original markup",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "user-html-1"
+          "msg-user-html"
         ],
         "quotes": [
-          "<!-- OPENING PAGE -->\n<div class=\"page active\" id=\"page1\">",
-          "<!-- MENU PAGE -->\n<div class=\"page\" id=\"page2\">",
-          "<button onclick=\"go('todo')\">📝 To-Do List</button>",
-          "<button onclick=\"go('reminder')\">⏰ Self Reminder</button>",
-          "<button onclick=\"go('notes')\">📖 Notes</button>",
-          "<button onclick=\"go('relax')\">🎮 Relax Yourself</button>"
+          "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>For My Best Friend 💖</title>"
         ]
       },
       "acceptanceCriteria": [
-        "On first load, the Opening screen is shown and the rest of the screens are not visible.",
-        "Clicking “Next” from the Opening screen shows the Menu screen.",
-        "Each Menu button navigates to the corresponding feature screen (To-Do List, Self-Care Reminders, Notes, Relax Mode).",
-        "Each feature screen includes a visible “Back” control that returns to the Menu screen.",
-        "All user-facing text introduced/changed for this navigation is in English."
+        "All sections defined in the HTML source are implemented as React components",
+        "CSS styling from the HTML <style> block is converted to Tailwind classes or custom CSS matching the original visual design",
+        "All JavaScript functionality from the HTML source is implemented in React hooks and components",
+        "The app structure and navigation flow matches the HTML implementation"
       ]
     },
     {
-      "id": "REQ-10",
-      "text": "Add background ambient music to the app using the provided audio URL, with a user control to play/pause (and optionally mute/unmute) that works with modern browser autoplay restrictions and persists the user’s preference locally.",
+      "id": "REQ-13",
+      "text": "Apply the Comic Sans MS font family as specified in the HTML source to maintain the cute, friendly aesthetic throughout the app",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "user-html-1"
+          "msg-user-html"
         ],
         "quotes": [
-          "<!-- MUSIC -->\n<audio id=\"music\" autoplay loop>\n  <source src=\"https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3\">"
+          "font-family: 'Comic Sans MS', cursive;"
         ]
       },
       "acceptanceCriteria": [
-        "The app uses this exact music URL: https://assets.mixkit.co/music/preview/mixkit-soft-piano-ambient-111.mp3",
-        "A visible control exists to start/stop the music (and if implemented, mute/unmute).",
-        "The user’s chosen music state is remembered across page reloads using localStorage (or an equivalent client-side mechanism).",
-        "If the browser blocks autoplay, the app does not crash and the user can start playback via the control."
+        "Comic Sans MS is loaded and applied as the primary font",
+        "A fallback cursive font is provided for systems without Comic Sans MS"
       ]
     },
     {
-      "id": "REQ-11",
-      "text": "Align the app’s copy (headings, button labels, placeholders, and short helper text) to match the provided HTML app’s wording and structure while keeping all user-facing text in English.",
+      "id": "REQ-14",
+      "text": "Implement the gradient background using the exact colors from the HTML source: linear gradient from #ffc0cb (pink) to #ff99cc (hot pink) from top-left to bottom-right",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "user-html-1"
+          "msg-user-html"
         ],
         "quotes": [
-          "<title>Hello Girlies App</title>",
-          "<h1>🎀 Hi Girlies 🎀</h1>",
-          "<p>I have solution of all your problems 💕</p>",
-          "<h2>What do you want today? 💖</h2>",
-          "<input id=\"todoInput\" placeholder=\"Add cute task…\">",
-          "<textarea id=\"note\" rows=\"5\" placeholder=\"Write your feelings…\"></textarea>",
-          "<h2>🎮 Relax Mode</h2>\n  <p>Tap bubbles 🌸</p>"
+          "background: linear-gradient(to bottom right, #ffc0cb, #ff99cc);"
         ]
       },
       "acceptanceCriteria": [
-        "The Opening screen shows the greeting headline and supporting sentence in English (matching the provided HTML wording closely).",
-        "The Menu screen shows the prompt text and four feature buttons with the same labels as the provided HTML (in English).",
-        "The To-Do and Notes placeholders match the provided HTML wording (in English).",
-        "Relax Mode displays a short instruction line equivalent to “Tap bubbles”."
+        "Background gradient matches the HTML source colors exactly",
+        "Gradient direction is top-left to bottom-right",
+        "Background covers the entire viewport without horizontal scrolling"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Implement the section display logic from the HTML source where sections are hidden by default (display:none) and shown individually based on navigation state",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-html"
+        ],
+        "quotes": [
+          "section{\n    display:none;\n    padding:50px 20px;\n    min-height:"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Only one section is visible at a time",
+        "Each section has consistent padding of 50px vertical and 20px horizontal",
+        "Sections have appropriate minimum height as defined in the HTML source"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Extract and implement all interactive features, content, and user flows defined in the complete HTML source code that was truncated in the user message",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-user-html"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All buttons, inputs, and interactive elements from the HTML are functional",
+        "All content sections (greetings, instructions, feature areas) are rendered",
+        "Navigation between screens works as defined in the HTML",
+        "All event handlers and dynamic behaviors are preserved"
       ]
     }
   ],
   "constraints": [
-    "Frontend files listed as immutable in SYSTEM_CONTEXT must not be modified directly: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, and anything under frontend/src/components/ui.",
-    "Do not introduce non-supported tech (no external databases, no third-party auth beyond Internet Identity, no WebSockets)."
+    "Do not change the backend architecture (single-actor Motoko)",
+    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui",
+    "Use only React, Tailwind CSS, Shadcn, and React Query for frontend implementation",
+    "Maintain the existing light/dark theme system while applying the new gradient background"
   ],
   "nonGoals": [
-    "Packaging or publishing the app to the Google Play Store (APK/AAB creation, TWA wrapping, Play Console submission) is out of scope for this build request.",
-    "Adding new feature areas beyond the provided Opening/Menu/To-Do/Reminders/Notes/Relax screens is out of scope."
+    "Adding Google Play Store publishing or PWA/TWA wrapper functionality",
+    "Changing the existing feature set beyond what the HTML source specifies",
+    "Adding backend data persistence (continue using localStorage as per HTML)",
+    "Integrating third-party authentication beyond Internet Identity"
   ],
   "imageRequirements": {
     "required": [],
